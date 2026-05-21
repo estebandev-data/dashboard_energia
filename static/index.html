@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Consumo Energético</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1> Dashboard de Consumo Energético en Tiempo Real</h1>
+            <p>Monitoreo de TDP, potencia y uso de recursos del sistema</p>
+        </header>
+
+        <main class="dashboard-grid">
+            <!-- Fila 1: Gauges principales -->
+            <div class="card gauge-card">
+                <div class="card-header">
+                    <h2> CPU</h2>
+                </div>
+                <div class="card-content gauge-wrapper">
+                    <canvas id="gaugeCPU"></canvas>
+                    <div class="gauge-info">
+                        <span id="cpuActualText" class="info-label">CPU: --%</span>
+                        <span id="tempActual" class="info-temp">--°C</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card gauge-card">
+                <div class="card-header">
+                    <h2> RAM</h2>
+                </div>
+                <div class="card-content gauge-wrapper">
+                    <canvas id="gaugeRAM"></canvas>
+                    <div class="gauge-info">
+                        <span id="ramActualText" class="info-label">RAM: --%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card gauge-card">
+                <div class="card-header">
+                    <h2> Potencia Total</h2>
+                </div>
+                <div class="card-content gauge-wrapper">
+                    <canvas id="gaugePotencia"></canvas>
+                    <div class="gauge-info">
+                        <span id="potenciaText" class="info-label">-- W</span>
+                        <span id="energiaAcumulada" class="info-energy">-- Wh</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fila 2: Gráfico principal de energía -->
+            <div class="card wide-card">
+                <div class="card-header">
+                    <h2> Evolución del Consumo Energético (TDP)</h2>
+                </div>
+                <div class="card-content">
+                    <canvas id="lineaEnergia"></canvas>
+                </div>
+            </div>
+
+            <!-- Fila 3: Gráficos complementarios -->
+            <div class="card medium-card">
+                <div class="card-header">
+                    <h2> TDP: Mínimo vs Actual vs Máximo</h2>
+                </div>
+                <div class="card-content">
+                    <canvas id="barTDP"></canvas>
+                </div>
+            </div>
+
+            <div class="card medium-card">
+                <div class="card-header">
+                    <h2> Uso de CPU y RAM (%)</h2>
+                </div>
+                <div class="card-content">
+                    <canvas id="lineaUso"></canvas>
+                </div>
+            </div>
+
+            <div class="card small-card">
+                <div class="card-header">
+                    <h2> Distribución de Consumo</h2>
+                </div>
+                <div class="card-content">
+                    <canvas id="tortaTDP"></canvas>
+                </div>
+            </div>
+        </main>
+
+        <footer class="dashboard-footer">
+             Sistema de monitoreo energético | Python (Flask) + SQLite + Chart.js
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
