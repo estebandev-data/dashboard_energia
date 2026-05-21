@@ -6,7 +6,7 @@ from threading import Thread, Lock
 from flask import Flask, jsonify, render_template
 from flask_cors import CORS
 
-# --- CONFIGURACIÓN ---
+# CONFIGURACIÓN 
 DB_PATH = 'database.db'
 PICO_UMBRAL_CPU = 80.0
 INTERVALO_MUESTRA = 3
