@@ -12,7 +12,7 @@ PICO_UMBRAL_CPU = 80.0
 INTERVALO_MUESTRA = 3
 MAX_REGISTROS = 500
 
-# CONFIGURACIÓN DE TDP Y CONSUMO ENERGÉTICO
+
 # Estos valores son estimaciones típicas, ajústalos según tu hardware
 TDP_CPU_MAX = 65.0  # Watts - TDP máximo de tu CPU (ajusta según tu procesador)
 TDP_CPU_MIN = 5.0   # Watts - Consumo en reposo
